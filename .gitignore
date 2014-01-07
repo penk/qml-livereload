@@ -5,3 +5,4 @@ Makefile
 *.app
 *.o
 *.dmg
+*.moc
