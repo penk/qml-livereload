@@ -1,0 +1,7 @@
+*~
+*.swp
+.DS_Store
+Makefile
+*.app
+*.o
+*.dmg
