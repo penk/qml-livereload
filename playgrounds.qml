@@ -26,6 +26,12 @@ Item {
         }
     }
 
+    Timer {
+        id: timer
+        interval: 500; running: true; repeat: true
+        onTriggered: viewLoader.setSource('http://localhost:5000/?'+Math.random()) // workaround for cache
+    }
+
     Rectangle { 
         id: background
         width: Screen.width/2
@@ -37,10 +43,7 @@ Item {
             id: editor
             anchors { fill: parent; margins: 20 } 
             wrapMode: TextEdit.WrapAtWordBoundaryOrAnywhere;
-            onTextChanged: {
-                // workaround for cache 
-                viewLoader.setSource('http://localhost:5000/?'+Math.random())
-            }
+            onTextChanged: timer.restart();
 
             // style from Atom dark theme: 
             // https://github.com/atom/atom-dark-syntax/blob/master/stylesheets/syntax-variables.less
@@ -49,8 +52,7 @@ Item {
             selectByMouse: true
             font { pointSize: 16; family: 'Monaco' }
 
-            text:   "import QtQuick 2.0\n" + 
-            "Rectangle { anchors.fill: parent; color: '#ff0000' }"
+            text:   "import QtQuick 2.0\n" + "Rectangle { anchors.fill: parent; color: '#ff0000' }"
         }
     }
     Item {
