@@ -1,0 +1,16 @@
+## INSTALL
+
+    qmake 
+    make 
+    make install 
+
+## USAGE 
+
+See `example.qml`
+
+## REFERENCE 
+
+Modified from below:
+
+http://rschroll.github.io/beru/2013/08/12/opening-a-file-in-qml.html
+http://developer.nokia.com/community/wiki/Reading_and_writing_files_in_QML

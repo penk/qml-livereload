@@ -6,3 +6,4 @@ Makefile
 *.o
 *.dmg
 *.moc
+.qmake.stash
