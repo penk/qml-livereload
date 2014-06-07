@@ -28,7 +28,7 @@ Item {
 
     Timer {
         id: timer
-        interval: 500; running: true; repeat: true
+        interval: 500; running: true; repeat: false
         onTriggered: viewLoader.setSource('http://localhost:5000/?'+Math.random()) // workaround for cache
     }
 
