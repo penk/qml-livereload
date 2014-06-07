@@ -34,8 +34,8 @@ Item {
 
     Rectangle { 
         id: background
-        width: Screen.width/2
-        height: Screen.height
+        width: root.width/2
+        height: root.height
         anchors { top: parent.top; left: parent.left; bottom: parent.bottom }
         color: '#1d1f21'
 
@@ -56,8 +56,8 @@ Item {
         }
     }
     Item {
-        width: Screen.width/2
-        height: Screen.height
+        width: root.width/2
+        height: root.height
         anchors { top: parent.top; left: background.right; bottom: parent.bottom }
         Loader {
             id: viewLoader

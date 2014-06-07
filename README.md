@@ -1,7 +1,7 @@
 QML Playgrounds
 ===============
 
-![playgrounds](http://i.imgur.com/bUyvDQU.png)
+![playgrounds](http://i.imgur.com/lBSQFC2.png)
 
 ### Reload-as-you-type QML editor and live preview 
 
