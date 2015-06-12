@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = livereload
+TARGET = qmllive
 SOURCES += main.cpp
 
 QT += quick
