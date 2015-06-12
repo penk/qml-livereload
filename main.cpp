@@ -150,7 +150,7 @@ QQuickWindow * createWindow(QQmlEngine * engine_handler
 			window = qobject_cast<QQuickWindow *>(qxView);
 			// Set window default properties; the qml can still override them
 			QString oname = contentItem->objectName();
-			window->setTitle(oname.isEmpty() ? QString::fromLatin1("qmlscene") : QString::fromLatin1("qmlscene: ") + oname);
+			window->setTitle(oname.isEmpty() ? QString::fromLatin1("QmlLive") : QString::fromLatin1("QmlLive: ") + oname);
 			if (options.resizeViewToRootItem)
 				qxView->setResizeMode(QQuickView::SizeViewToRootObject);
 			else
