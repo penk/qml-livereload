@@ -1,8 +1,8 @@
-QML LiveReload
+﻿QML LiveReload
 ==============
 
-![screencast](https://raw.github.com/penk/qml-livereload/master/screencast.gif)
+![screencast](./screencast.gif)
 
-### Simple QtQuick app live viewer
+Simple QtQuick app live viewer
 
-Put your `main.qml` file under the same directory of `livereload`, and starts `./livereload &`
+This version is fully qmlscene compatible, with no arguments given, it reads main.qml from current directory.

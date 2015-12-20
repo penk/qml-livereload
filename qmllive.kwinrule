@@ -1,0 +1,11 @@
+[QmlLive]
+Description=QmlLive
+above=true
+aboverule=3
+acceptfocus=false
+acceptfocusrule=2
+title=Serial Test
+titlematch=0
+wmclass=QmlLive
+wmclasscomplete=false
+wmclassmatch=1
