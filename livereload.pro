@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = qmllive
+TARGET = /usr/local/bin/qmllive
 SOURCES += main.cpp
 
 QT += qml quick
