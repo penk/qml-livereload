@@ -160,6 +160,7 @@ QQuickWindow * createWindow(QQmlEngine * engine_handler
 				qxView->setResizeMode(QQuickView::SizeViewToRootObject);
 			else
 				qxView->setResizeMode(QQuickView::SizeRootObjectToView);
+            qxView->setSource(QUrl());
 			qxView->setContent(options.file, component, contentItem);
 		}
 	}
