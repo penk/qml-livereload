@@ -1,8 +1,8 @@
 TEMPLATE = app
-TARGET = qmllive
+TARGET = /usr/local/bin/qmllive
 SOURCES += main.cpp
 
-QT += quick
+QT += qml quick
 mac: {
     CONFIG -= app_bundle
 }

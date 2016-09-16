@@ -60,6 +60,11 @@
 #include <QThread>
 #include <QFileSystemWatcher>
 
+#include <QStringList>
+#include <QDir>
+#include <QString>
+#include <QFileInfo>
+
 
 //#define USE_ApplicationEngine
 
@@ -155,6 +160,7 @@ QQuickWindow * createWindow(QQmlEngine * engine_handler
 				qxView->setResizeMode(QQuickView::SizeViewToRootObject);
 			else
 				qxView->setResizeMode(QQuickView::SizeRootObjectToView);
+            qxView->setSource(QUrl());
 			qxView->setContent(options.file, component, contentItem);
 		}
 	}
@@ -199,6 +205,24 @@ private:
 	QPointer<QQmlComponent> component;
 	Options options;
 	QQuickWindow * window;
+
+    void subFoldersList(QString folder, QStringList *dirList)
+    {
+        QDir dir(folder);
+        dir.setFilter(QDir::Dirs);
+
+        QFileInfoList list = dir.entryInfoList();
+
+        for (int i = 0; i < list.size(); ++i) {
+            QFileInfo fileInfo = list.at(i);
+            if (fileInfo.fileName() != "." && fileInfo.fileName() != "..") {
+                QString folderPath = fileInfo.path() + "/" + fileInfo.fileName();
+                *dirList << folderPath;
+                subFoldersList(folderPath, dirList);
+            }
+        }
+    }
+
 private slots:
 	void fileChanged(const QString & path) {
 		qDebug() << "file changed: " << path;
@@ -232,10 +256,14 @@ LiveReload::LiveReload(QQmlEngine * a_engine_handler
 //#else
 	window = createWindow(engine_handler, qxView, component, options);
 //#endif
-
+//
 	QFileInfo file(options.file.toLocalFile());
-	watcher.addPath(file.path());
-	watcher.addPath(file.filePath());
+    QStringList list;
+    list << file.path();
+    QStringList *dirList;
+    dirList = &list;
+    this->subFoldersList(file.path(), dirList);
+    watcher.addPaths(*dirList);
 
 	connect(&watcher, SIGNAL(directoryChanged(const QString &)),
 	  this, SLOT(fileChanged(const QString &)));
